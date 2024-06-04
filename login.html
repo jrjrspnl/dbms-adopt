@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="login.css">
+    </head>
+    <body>
+    <div class="container">
+        <div class="heading">Log In</div>
+        <form class="form" action="">
+            <select class="module" id="module">
+                    <option value='admin'>Admin</option>
+                    <option value='employee'>Employee</option>
+                    <option value='client'>Client</option>
+                    <option value='' selected>
+                      Module
+                    </option>
+            </select>
+            <input
+            placeholder="Email Address"
+            id="email"
+            name="email"
+            type="email"
+            class="input"
+            required title="Please fill out this field."
+            />
+            <input
+            placeholder="Password"
+            id="password"
+            name="password"
+            type="password"
+            class="input"
+            required=""
+            />
+            <input value="Log In" type="submit" class="login-button"/>
+            <input value="Cancel" type="reset" class="cancel-button" href="index.html"/>
+        </form>
+    </div>
+    </body>
+</html>

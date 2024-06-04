@@ -1,0 +1,335 @@
+.navbar {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.3);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: rgba(63, 200, 255); 
+}
+
+
+.btn-login.btn {
+    background-color: rgba(63, 200, 255); 
+    color: #ffffff;
+}
+
+.btn-login.btn:hover {
+    background-color: rgba(50, 162, 206); 
+    border-color: rgba(50, 162, 206); 
+    color: #ffffff;
+}
+
+.btn-donate.btn {
+    padding: 6px 20px;
+    background-color: rgba(63, 200, 255); 
+    border-color: rgba(63, 200, 255);
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+.btn-donate.btn:hover {
+    padding: 7px 25px;
+    background-color: rgba(50, 162, 206); 
+    border-color: rgba(50, 162, 206); 
+    color: #ffffff;
+}
+
+.btn.btn-outline-primary {
+    font-weight: bold;
+    border-color: white;
+    color: white;
+}
+
+
+.con{
+    padding: 200px 0;
+}
+
+.quote {
+    color: white;
+}
+
+.quote2 {
+    color: rgba(63, 200, 255);
+}
+
+.navbar-nav .nav-item {
+    padding: 0 20px; /* Adjust the padding as needed */
+}
+
+@media (max-width: 768px) {
+    .navbar-nav .nav-item {
+        padding: 0;
+    }
+}
+
+.bg-color {
+    background-color: rgba(63, 200, 255); 
+}
+/* Styles for the body to set background image */
+body.bg-image {
+    background-image: url('images/orpbg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Fixes the background image in place */
+}
+
+/* Styles for the container holding the image */
+.image-container {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+/* Styles for the image within the container */
+ .image-container img {
+    width: 100%;
+    height: auto;
+ }
+
+  .quotes{
+    padding: 50px;
+    background-color: rgb(240,240,240);
+  }
+
+
+  @media (max-width: 500px) {
+    .navbar-brand.text-light {
+      font-size: 15px !important; /* Adjust the font size as needed */
+    }
+    .logo{
+        width: 60px;
+        height: 45px;
+    }
+  }
+
+  .nav-link.active {
+    color: rgba(63, 200, 255) !important; 
+  }
+
+/* content 1 */
+.main-container{
+    background-color: #fff;
+    padding: 50px;
+}
+
+
+.container1{
+    margin-top: 100px;
+}
+
+.title{ 
+    letter-spacing: 1px;
+    
+}
+
+.description,.custom-button{
+    text-align: justify; 
+}
+
+.noob {
+    background-color: rgba(63, 200, 255);
+    padding: 50px 200px 30px 20px; /* Adjust padding as needed */
+    position: relative;
+    z-index: 0; /* Ensure text is behind the image */
+}
+
+.image img {
+    width: 400px; /* Set width */
+    height: 400px; /* Set height to match width */
+    border-radius: 50%; /* Border radius to make it a circle */
+    border: 10px solid #fff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    right: 200px;
+    top: -20px;
+}
+
+.custom-button {
+    background-color: rgb(255, 255, 255); /* Green */
+    border: none;
+    color: #000;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    margin-left: 20px;
+}
+
+
+.custom-button:hover {
+    background-color: #efefef; /* Darker shade of green on hover */
+}
+
+@media (max-width: 1400px) {
+    .image img{
+        right: 110px;
+        bottom: 19px;
+    }
+    .noob{
+        padding: 50px 100px 30px 20px;
+    }
+}
+
+@media (max-width: 1390px) {
+    .image img{
+        right: 120px;
+        top: -30px;
+    }
+    .noob{
+        padding: 40px 95px 20px 10px;
+    }
+}
+
+@media (max-width: 1030px) {
+    .title{
+        text-align: start;
+    }
+    .description,
+    .custom-button {
+        text-align: justify; /* Center-align text */
+    }
+
+    .noob{
+        padding: 50px 20px 30px 20px;
+    }
+}
+
+/* content 2 */
+.childs {
+    background-color:rgb(236,241,245); /* Set your desired background color */
+    padding: 20px;
+}
+
+.container2 {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Cover the entire width of the container */
+    height: 100%; /* Cover the entire height of the container */
+    background-color:rgba(63, 200, 255,.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.overlay-text {
+    color: white;
+    font-family: Verdana;
+    text-align: center;
+    font-weight: bold;
+}
+
+.img-container {
+    position: relative;
+    display: inline-block;
+}
+
+.img-container .overlay {
+    width: 100%; /* Cover the entire width of the image */
+    height: 100%; /* Cover the entire height of the image */
+}
+
+.paragraph-below-overlay {
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+    font-size: 18px;
+    color: #333; /* Adjust text color as needed */
+}
+
+.logos-container {
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+    
+}
+
+/* content 3 */
+
+.new-section{
+    background-color: #fff;
+    padding: 50px;
+}
+
+.logo {
+    display: inline-block;
+    margin: 0 10px; /* Adjust as needed */
+}
+
+.logo img {
+    width: 50px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.logo-container img {
+    width: 80px; /* Set the desired width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.right {
+    justify-content: flex-end;
+}
+
+.text-with-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Adjust as needed */
+    padding: 20px 15px 20px 15px;
+    background-color: #D3D3D3;
+}
+
+.text-container {
+    margin-left: 20px; /* Adjust as needed */
+}
+
+@media (max-width: 769px){
+    .overlay-text {
+        font-size: 20px;
+    }
+
+    @media (max-width: 527px){
+        .overlay-text {
+            font-size: 16px;
+        }  
+        
+        p {
+            text-align: justify;
+        }
+
+    }
+
+    @media (max-width: 436px){
+        .overlay-text {
+            font-size: 13px;
+        }  
+        p {
+            text-align: justify;
+        }
+    }
+
+    @media (max-width: 365px){
+        .overlay-text {
+            font-size: 10px;
+        }  
+        p {
+            text-align: justify;
+        }
+    }
+
+}

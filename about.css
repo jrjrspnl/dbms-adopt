@@ -1,0 +1,221 @@
+.navbar {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.3);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: rgba(63, 200, 255); 
+}
+
+
+.btn-login.btn{
+    background-color: rgba(63, 200, 255); 
+    color: #ffffff;
+}
+
+.btn-login.btn:hover {
+    background-color: rgba(50, 162, 206); 
+    border-color: rgba(50, 162, 206); 
+    color: #ffffff;
+}
+
+.btn-donate.btn {
+    padding: 6px 20px;
+    background-color: rgba(63, 200, 255); 
+    border-color: rgba(63, 200, 255);
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+.btn-donate.btn:hover {
+    padding: 7px 25px;
+    background-color: rgba(50, 162, 206); 
+    border-color: rgba(50, 162, 206); 
+    color: #ffffff;
+}
+
+.btn.btn-outline-primary {
+    font-weight: bold;
+    border-color: white;
+    color: white;
+}
+
+.con{
+    padding: 200px 0;
+}
+
+.quote {
+    color: white;
+}
+
+.quote2 {
+    color: rgba(63, 200, 255);
+}
+.navbar-brand img.logo {
+    margin: 0 10px !important; /* Add !important to ensure this rule takes precedence */
+}
+
+.navbar-nav .nav-item {
+    padding: 0 20px; /* Adjust the padding as needed */
+}
+
+@media (max-width: 768px) {
+    .navbar-nav .nav-item {
+        padding: 0;
+    }
+}
+
+
+  @media (max-width: 500px) {
+    .navbar-brand.text-light {
+      font-size: 15px !important; /* Adjust the font size as needed */
+    }
+    .logo{
+        width: 60px;
+        height: 45px;
+    }
+  }
+
+  .nav-link.active {
+    color: rgba(63, 200, 255) !important; 
+  }
+
+  @media (max-width: 768px) {
+    .display-4 {
+      font-size: 2rem; /* Adjust font size for smaller screens */
+    }
+  }
+
+ /* about us */
+ .sec1{
+    margin-top: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #eeeeee;
+}
+
+.logos a {
+    font-size: 1.50rem;
+}
+
+.about-image{
+    width: 800px;
+    height: auto;
+}
+
+.about{
+    text-align: justify;
+    padding: 0 10px 0 10px;
+}
+
+.center-container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Optional: Centers vertically on the page */
+  }
+
+
+/*values*/
+
+.sec2 {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #ECF1F5;
+}
+
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* You can adjust the values to fit your design */
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Add transition for smoother effect */
+}
+
+.card-text{
+    font-size: medium;
+}
+
+.row{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card:hover {
+    background-color: rgba(63, 200, 255);  /* Change background color on hover */
+    color: white; /* Change text color on hover */
+}
+
+.logov {
+    width: 100px;
+    height: auto; /* This maintains the aspect ratio */
+}
+
+.card:hover .logov {
+    filter: brightness(0) invert(1); /* Changes image to white on hover */
+}
+
+@media(max-width:520px){
+    .card-text{
+        font-size: 15px;
+    }
+}
+
+@media(max-width:415px){
+    .card-text{
+        font-size: 14px;
+    }
+}
+
+/* content 3*/
+.sec3{
+    padding-bottom: 50px;
+}
+.highlight {
+    color: rgba(63, 200, 255);
+    letter-spacing: 3px;
+}
+
+
+.title{
+    letter-spacing: 3px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+
+.description{
+    font-size: 15px;
+}
+
+
+.custom-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+
+.custom-button:hover {
+    background-color: #45a049; /* Darker shade of green on hover */
+}
+.custom-justified-text {
+    text-align: justify;
+  }
+
+
+  .align-items-center {
+    align-items: center;
+}
+
+/* Footer *
