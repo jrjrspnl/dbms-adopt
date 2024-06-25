@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,54 +9,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>website</title>
   <link rel="stylesheet" href="about.css">
-  <script defer src="script.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <!-- navbar -->
-<nav class="navbar navbar-expand-xl fixed-top navbar-light">
-  <div class="container-xxl">
-    <a href="#intro" class="navbar-brand text-decoration-none text-light fs-5">
-      <img class="logo" src="images/weblogo.png" width="85" height="65">AdoptAbility Foundation
-    </a>
-    <!-- toggle for mobile nav-->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <nav class="navbar navbar-expand-xl fixed-top navbar-light">
+    <div class="container-xxl">
+      <a href="<?php echo isset($_SESSION['id']) ? 'user_db.php' : 'index.php'; ?>" class="navbar-brand text-decoration-none text-light fs-5">
+        <img class="logo" src="images/weblogo.png" width="85" height="65">AdoptAbility Foundation
+      </a>
+      <!-- toggle for mobile nav-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <!-- nav-bar links-->
-    <div class="collapse navbar-collapse justify-content-end" id="main-nav">
-      <ul class="navbar-nav fs-6 text-light text-center ">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="about.html" >About us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Adoption</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="#" onclick="scrollToFooter()">Contact us</a>
-        </li>
-        <li class="nav-item">
-          <a class="btn btn-login px-4" href="login.html">Login</a>
-        </li>
-        <li class="nav-item d-none d-md-inline">
-          <a class="btn btn-donate d-none d-xl-block" href="#">Donate</a>
-        </li>
-      </ul>
+      <!-- nav-bar links-->
+      <div class="collapse navbar-collapse justify-content-end" id="main-nav">
+        <ul class="navbar-nav fs-6 text-light text-center">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.php">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="adoption.php">Adoption</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#footer">Contact us</a>
+          </li>
+          <li class="nav-item d-none d-md-inline">
+            <a class="btn btn-donate d-none d-xl-block" href="#">Donate</a>
+          </li>
+          <?php if (isset($_SESSION['id'])): ?>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="user_db.php" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                My Account
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="user_db.php">Profile Details</a></li>
+              <li><a class="dropdown-item" href="request.php">Request</a></li>
+                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+              </ul>
+            </li>
+          <?php else: ?>
+            <li class="nav-item">
+            <a class="btn btn-login px-4" href="login.php">Login</a>
+            </li>
+          <?php endif; ?>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
 <section id="sec">
-  <div class="image-container d-flex justify-content-center align-items-center" style="height: 60vh; background-image: url('images/who.jpg'); background-size: cover; background-position: center;">
-    <div class="con container-lg mb-5">
+  <div class="image-container d-flex justify-content-center align-items-center" style="height: 60vh; background-image: url('images/who.jpg'); background-size: cover; background-position: center; position: relative;">
+    <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(63, 200, 255, 0.5);"></div>
+    <div class="con container-lg mb-5" style="position: relative; z-index: 1;">
       <div class="row justify-content-center">
         <div class="col-xl-12 text-center">
-          <div class="quote display-4">Discover Our Identity</div>
+          <div class="quote display-3">Discover Our Identity</div>
         </div>
       </div>
     </div>
@@ -147,7 +164,6 @@
     </div>
 </div>
 
-<div id="ContactUs">
 <footer
           class="text-center text-lg-start text-white"
           style="background-color: #3FC8FF"
@@ -203,7 +219,7 @@
           <!-- Grid column -->
           <!-- Grid column -->
           <!-- Grid column -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3 mb-5">
             <h6 class="text-uppercase mb-4 fw-bold">Follow us</h6>
             <div>
               <a href="#" style="margin-right: 10px;"><img src="images/facebook.png" alt="Facebook Logo" width="30" height="30"></a>
@@ -236,8 +252,7 @@
   </footer>
 </div>
 
-  
-  
-  
+<script defer src="nav.js"></script>
+
 </body>
 </html>

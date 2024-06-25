@@ -8,6 +8,10 @@
     color: white;
 }
 
+.nav-link.active {
+    color: rgba(63, 200, 255) !important; /* Change color as per your design */
+}
+
 .navbar-nav .nav-item:hover .nav-link {
     color: rgba(63, 200, 255); 
 }
@@ -57,12 +61,13 @@
     color: rgba(63, 200, 255);
 }
 .navbar-brand img.logo {
-    margin: 0 5px;
+    margin: 0 10px !important; /* Add !important to ensure this rule takes precedence */
 }
 
 .navbar-nav .nav-item {
     padding: 0 20px; /* Adjust the padding as needed */
 }
+
 
 @media (max-width: 768px) {
     .navbar-nav .nav-item {
@@ -81,12 +86,9 @@
     }
   }
 
-  .nav-link.active {
-    color: rgba(63, 200, 255) !important; 
-  }
-
   @media (max-width: 768px) {
     .display-4 {
       font-size: 2rem; /* Adjust font size for smaller screens */
     }
   }
+
