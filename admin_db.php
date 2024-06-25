@@ -496,10 +496,10 @@ $stmt->close();
                             echo "<td class='text-center'>{$row['created_at']}</td>";
                             echo "<td>";
                             echo "<div class='btn-group'>";
-                            echo "<form method='post' class='release-form'>";
+                            echo "<form method='post' action='release_request.php' class='release-form'>";
                             echo "<input type='hidden' name='request_id' value='{$row['id']}'>";
-                            echo "<button type='button' class='btn btn-success mx-2 release-btn'>Release</button>";
-                            echo "</form>";        
+                            echo "<button type='button' class='btn btn-success mx-2 release-btn' onclick='confirmRelease({$row['id']})'>Release</button>";
+                            echo "</form>";                                                            
                             echo "<form method='post' action='reject_request.php' class='release-form' id='rejectForm'>";
                             echo "<input type='hidden' name='request_id' value='{$row['id']}'>";
                             echo "<button type='button' class='btn btn-danger mx-2 reject-btn' onclick='confirmReject({$row['id']})'>Reject</button>";
@@ -1076,8 +1076,46 @@ $(document).ready(function() {
         });
     }
 </script>
-
-    </script>
+<script>
+    function confirmRelease(requestId) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You are about to release this request. This action cannot be undone!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Release'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'release_request.php',
+                    data: {
+                        'release_request': true,
+                        'request_id': requestId
+                    },
+                    success: function(response) {
+                        Swal.fire({
+                            title: 'Released!',
+                            text: 'The request has been released successfully.',
+                            icon: 'success'
+                        }).then((result) => {
+                            location.reload(); // Reload the page or update the table dynamically
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'An error occurred while processing the request.',
+                            icon: 'error'
+                        });
+                    }
+                });
+            }
+        });
+    }
+</script>
 <script>
   $(document).ready(function() {
     $('.rejectbtn').on('click', function() {
