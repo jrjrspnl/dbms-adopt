@@ -8,7 +8,7 @@ session_start();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>website</title>
-  <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="donation.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
@@ -64,105 +64,55 @@ session_start();
   </nav>
 
 <section id="sec">
-  <div class="image-container d-flex justify-content-center align-items-center" style="height: 60vh; background-image: url('images/who.jpg'); background-size: cover; background-position: center; position: relative;">
+  <div class="image-container d-flex justify-content-center align-items-center" style="height: 60vh; background-image: url('images/hope.jpg'); background-size: cover; background-position: center; position: relative;">
     <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(63, 200, 255, 0.5);"></div>
     <div class="con container-lg mb-5" style="position: relative; z-index: 1;">
       <div class="row justify-content-center">
         <div class="col-xl-12 text-center">
-          <div class="quote display-3">Discover Our Identity</div>
+          <div class="quote display-3">Make an Impact</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec1">
-  <div class="container container1">
-    <div class="row justify-content-center align-items-center">
-        <div class=" col-lg-8 text-center">
-            <!-- Logo and text -->
-            <div class="d-flex align-items-center justify-content-center mb-3">
-                <img src="images/weblogo.png" alt="Logo" class="img-fluid mr-3" style="max-width: 100px;">
-                <h2 class="m-0">AdoptAbility Foundation</h2>
-            </div>
-        </div>
-    </div>
-
-    <div class="row justify-content-center align-items-center"> <!-- Centering content horizontally and vertically -->
-        <div class=" col-lg-8 text-center">
-            <!-- Image -->
-            <img src="images/orpbg.png" alt="Image" class="img-fluid mb-3">
-        </div>
-    </div>
-
-    <div class="row justify-content-center">
-        <div class=" col-lg-8 text-justify">
-            <!-- Paragraph text -->
-            <p class="about text-justify">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim veniam beatae, natus aut vel est debitis labore vero aperiam ratione ad perferendis placeat quia in sapiente esse. Quae qui, enim ullam earum quia itaque corrupti placeat, blanditiis expedita corporis vitae quos deleniti dolore ipsa. Ab quisquam alias laborum neque? Debitis voluptatum molestias voluptates numquam inventore vero iusto, at consequatur laudantium? Nihil iusto totam aliquam omnis itaque, molestiae tempore quos voluptatem ratione neque dolorum nulla! Natus, modi nihil aperiam architecto eaque totam dolorum deserunt enim temporibus quis repellendus illo deleniti id a recusandae? Atque mollitia dolorem tenetur vitae laboriosam? Soluta, accusamus consectetur porro quasi magnam earum modi nam ullam dolores labore ipsum, sequi quidem mollitia vitae dolorum, repellat ipsam iusto eligendi. Sit, ipsa recusandae. Vero laborum totam omnis amet similique! Eius perferendis placeat sunt amet quam sed repudiandae unde ullam consequuntur, itaque inventore velit cumque labore sit ut explicabo, nulla quaerat?</p>
-        </div>
-    </div>
-</div>
-</section>
-
-<section class="sec2">
-  <div class="container container3">
-      <div class="row justify-content-center text-center">
-          <div class="col-md-4 col-md-6 col-lg-4 col-lg-6 col-xl-6 col-xxl-4">
-              <div class="card mt-3" style="width: 100%; padding: 10px;">
-                  <div class="card-body">
-                      <h2 class="fw-bold">Our Mission</h2>
-                      <img src="images/target.png" alt="Mission Logo" class="logov pt-3">
-                      <p class="card-text pt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint vero veniam nisi commodi, modi eveniet necessitatibus molestiae. Ducimus aut vitae consequuntur voluptatibus, accusantium nulla laboriosam blanditiis obcaecati tempore, tenetur consectetur.</p>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4 col-md-6 col-lg-4 col-lg-6 col-xl-6 col-xxl-4">
-              <div class="card mt-3" style="width: 100%; padding: 10px;">
-                  <div class="card-body">
-                      <h2 class="fw-bold">Our Vision</h2>
-                      <img src="images/find.png" alt="Vision Logo" class="logov pt-3">
-                      <p class="card-text pt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint vero veniam nisi commodi, modi eveniet necessitatibus molestiae. Ducimus aut vitae consequuntur voluptatibus, accusantium nulla laboriosam blanditiis obcaecati tempore, tenetur consectetur.</p>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4 col-md-6 col-lg-4 col-lg-6 col-xl-6 col-xxl-4">
-              <div class="card mt-3" style="width: 100%; padding: 10px;">
-                  <div class="card-body">
-                      <h2 class="fw-bold">Our Team Values</h2>
-                      <img src="images/value.png" alt="Team Values Logo" class="logov pt-3">
-                      <p class="card-text pt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint vero veniam nisi commodi, modi eveniet necessitatibus molestiae. Ducimus aut vitae consequuntur voluptatibus, accusantium nulla laboriosam blanditiis obcaecati tempore, tenetur consectetur.</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</section>
-
-
-  <div class="container">
+<div class="container-fluid" style="padding-bottom: 100px; padding-top: 60px;">
     <div class="row">
-        <div class="col">
-            <h1 class="title my-5">HOW YOU CAN <span class="highlight">HELP</span></h1>
+        <div class="col-md-8 offset-md-2">
+            <h3 class="text-center fw-bold text-info mb-3">BANK ACCOUNT DETAILS</h3>
+            <p class="fs-5">Your support and generosity empower the Adoptability Foundation to extend a helping hand to those in vulnerable situations. With your donations, we can make a significant difference in the lives of individuals facing challenges.</p>
+            
+            <p class="fs-5 mb-5">To contribute, please use the following donation channels:</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                <h5 class="fs-5"><strong>BPI</strong></h5>
+                    <ul class="fs-5">
+                    <li class="lh-md"><strong>Malabon Branch</strong></li>
+                    <li class="lh-md"><strong>Account Name:</strong> Adoptability Foundation</li>
+                    <li class="lh-sm"><strong>Peso Savings Account Number:</strong> 1234-5678-90</li>
+                    <li class="lh-md"><strong>Swift Code:</strong> BPIPHMM</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                <h5 class="fs-4"><strong>Metrobank</strong></h5>
+                    <ul class="fs-5">
+                        <li class="lh-md"><strong>Manila Branch</strong></li>
+                        <li class="lh-md"><strong>Account Name:</strong> Adoptability Foundation</li>
+                        <li class="lh-md"><strong>Peso Savings Account Number:</strong> 9876-5432-10</li>
+                        <li class="lh-md"><strong>Swift Code:</strong> BPIPHMM</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="sec3">
-    <div class="container container4">
-        <div class="row align-items-center">
-            <div class="col-md-6 col-lg-6">
-                <img src="images/donation.jpg" alt="donate" class="img-fluid float-start my-4">
-                <p class="description custom-justified-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi autem voluptatem iste, ut nostrum eum dolores quas non voluptates sunt ab laborum sequi porro tempore reiciendis sit, quibusdam consequuntur rerum.</p>
-                <button class="custom-button mb-5"d-flex>Donate</button>
-            </div>
-             <div class="col-md-6 col-lg-6">
-                <img src="images/adoptch.jpg" alt="donate" class="img-fluid float-start my-4">
-                <p class="description custom-justified-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae, officiis maxime ad cupiditate, temporibus dolorem animi nihil, qui libero provident veritatis. Exercitationem incidunt ipsa atque quis fuga nam doloremque modi.</p>
-                <button class="custom-button mb-5">Adopt</button>
-            </div>
-        </div>
-    </div>
+<div class="container-fluid bg-light" style="padding-top: 100px; padding-bottom: 100px;">
+    <h2 class="text-center">Thank you for supporting AdoptAbility Foundation</h2>
+    <p class="text-center">Our mission is to help every child find a loving and supportive family. Join us in making a difference!</p>
 </div>
+
 
 <footer
           class="text-center text-lg-start text-white"

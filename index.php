@@ -42,7 +42,7 @@ session_start();
             <a class="nav-link" href="#footer">Contact us</a>
           </li>
           <li class="nav-item d-none d-md-inline">
-            <a class="btn btn-donate d-none d-xl-block" href="#">Donate</a>
+            <a class="btn btn-donate d-none d-xl-block" href="donation.php">Donate</a>
           </li>
           <?php if (isset($_SESSION['id'])): ?>
             <li class="nav-item dropdown">

@@ -36,7 +36,7 @@
           <a class="nav-link" href="#footer">Contact us</a>
         </li>
         <li class="nav-item">
-        <a class="btn btn-donate d-none d-xl-block" href="#">Donate</a>
+        <a class="btn btn-donate d-none d-xl-block" href="Donation.php">Donate</a>
         </li>
         <li class="nav-item d-none d-md-inline">
         <a class="btn btn-login px-4" href="login.php">Login</a>
@@ -119,9 +119,9 @@
 </div>
 
 
-<div class="container my-5 py-3">
-    <h2 class="text-center mt-5">Thank you for supporting AdoptAbility Foundation</h2>
-    <p class="text-center mb-5">Our mission is to help every child find a loving and supportive family. Join us in making a difference!</p>
+<div class="container-fluid bg-light" style="padding-top: 100px; padding-bottom: 100px;">
+    <h2 class="text-center">Thank you for supporting AdoptAbility Foundation</h2>
+    <p class="text-center">Our mission is to help every child find a loving and supportive family. Join us in making a difference!</p>
 </div>
 
     <div id="ContactUs">

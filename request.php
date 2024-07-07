@@ -60,6 +60,28 @@ $stmt->close();
   <title>User Dashboard</title>
   <link rel="stylesheet" href="request.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    /* Hide the form when viewing on the website */
+    @media screen {
+            .print-only {
+                display: none;
+            }
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .print-only, .print-only * {
+                visibility: visible;
+            }
+            .print-only {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+</style>
 </head>
 <body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -272,13 +294,50 @@ $stmt->close();
                     <h4 class="alert-heading">Congratulations!</h4>
                 </div>
                 <div>
-                    <h4 style="padding-top: 20px;">Your adoption request has been accepted!</h4>
-                    <p class="text-danger mt-4">Please check your email for further instructions on what documents to prepare for your visit to the orphanage.<br>Keep an eye on your inbox for the scheduled date and time of your visit. We look forward to welcoming you!</p>
-                    <hr>
-                    <p class="mb-5">Thank you for choosing AdoptAbility Foundation.</p>
-                    <a href="#" class="btn btn-primary" role="button">Print Visit Form</a>
-                    <p style="padding-bottom: 150px;"></p>
-                </div>
+                  <h4 style="padding-top: 20px;">Your adoption request has been accepted!</h4>
+                  <p class="text-danger mt-4">Please check your email for further instructions on what documents to prepare for your visit to the orphanage.<br>Keep an eye on your inbox for the scheduled date and time of your visit. We look forward to welcoming you!</p>
+                  <hr>
+                  <p class="mb-5">Thank you for choosing AdoptAbility Foundation.</p>
+                  <a href="#" class="btn btn-primary mb-5" role="button" onclick="window.print()">Print Visit Form</a>
+              </div>
+
+              <div class="border p-4 print-only">
+                  <h1 class="text-center">AdoptAbility Foundation</h1>
+                  <h4 class="text-center">Empowering Families, One Child at a Time</h4>
+                  <p class="text-center">Your Address<br>City, State, ZIP Code</p>
+                  <p>Date: [Date]</p>
+                  <hr>
+                  <p>Recipient's Name<br>Recipient's Address<br>City, State, ZIP Code</p>
+                  <p>Dear [Recipient's Name],</p>
+                  <p>We are pleased to inform you that your adoption request has been accepted. We are excited to assist you in the next steps of the adoption process. Please find the details of your upcoming visit below.</p>
+                  <p><strong>Visit Details:</strong></p>
+                  <p>Orphanage Name: [Orphanage Name]<br>
+                  Address: [Orphanage Address]<br>
+                  Scheduled Date: [Date]<br>
+                  Scheduled Time: [Time]</p>
+                  <p><strong>Instructions:</strong></p>
+                  <p>1. Document Preparation: Please bring the following documents for verification:
+                  <ul>
+                      <li>Identification proof (Government-issued ID)</li>
+                      <li>Address proof</li>
+                      <li>Any other documents specified in the email.</li>
+                  </ul>
+                  2. Verification: You will be required to present these documents upon arrival at the orphanage.</p>
+                  <p class="mt-5"><strong>Recipient Verification:</strong></p>
+                  <p>Please sign below to confirm that you are the individual who has registered for the adoption process with the AdoptAbility Foundation and that you will adhere to the instructions provided.</p>
+                  <p class="mt-5">Signature: ___________________________</p>
+                  <p>Printed Name: ________________________</p>
+                  <p>Date: _______________________________</p>
+                  <p>We look forward to welcoming you and assisting you in this meaningful journey.</p>
+                  <p>Thank you for choosing the AdoptAbility Foundation.</p>
+                  <p>Sincerely,<br>
+                  [Your Name]<br>
+                  AdoptAbility Foundation<br>
+                  Contact Information: [Contact Information]<br>
+                  Email: [Email Address]<br>
+                  Website: [Website URL]</p>
+                  <hr>
+              </div>
                 <?php elseif ($status == 'Rejected'): ?>
                   <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

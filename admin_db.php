@@ -221,77 +221,86 @@ $stmt->close();
     </div>
 </div>
     </div>
-<div id="children" class="content-section" style="display: none;">
+    <div id="children" class="content-section" style="display: none;">
     <div class="container-fluid">
-    <h2 class="text-center mb-5">Children's Information</h2>
-    <div class="table-responsive">
-        <div class="mb-3 text-end">
-        <button type="button" class="btn btn-success"  data-bs-toggle='modal' data-bs-target='#addChildModal'>Add New Child</button>
+        <h2 class="text-center mb-5">Children's Information</h2>
+        <div class="table-responsive">
+            <div class="mb-3 text-end">
+                <button type="button" class="btn btn-success" data-bs-toggle='modal' data-bs-target='#addChildModal'>Add New Child</button>
+            </div>
+            <table id="childrenTable" class="table table-striped text-center" style="width:100%">
+                <thead>
+                    <tr>
+                        <th class="text-center">ID</th>
+                        <th class="text-center">Image</th>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">DOB</th>
+                        <th class="text-center">Gender</th>
+                        <th class="text-center">DOA</th>
+                        <th class="text-center">Caregiver</th>
+                        <th class="text-center">Medical Information</th>
+                        <th class="text-center">Educational Status</th>
+                        <th class="text-center">Legal Status</th>
+                        <th class="text-center">Contact Information</th>
+                        <th class="text-center">Foster Parent</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Fetch orphanage records from database
+                    $sql = "SELECT * FROM orphanage";
+                    $result = mysqli_query($conn, $sql);
+
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr data-childid='{$row['ChildID']}'>";
+                            echo "<td class='view_id'>{$row['ChildID']}</td>";
+                            echo "<td><img src='{$row['ImagePath']}' class='img-fluid' style='max-width: 100px;' alt='Child Image'></td>";
+                            echo "<td>{$row['Name']}</td>";
+                            echo "<td>{$row['DateOfBirth']}</td>";
+                            echo "<td>{$row['Gender']}</td>";
+                            echo "<td>{$row['DateOfAdmission']}</td>";
+                            echo "<td>{$row['GuardianCaregiver']}</td>";
+                            echo "<td>{$row['MedicalInformation']}</td>";
+                            echo "<td>{$row['EducationalStatus']}</td>";
+                            echo "<td>{$row['LegalStatus']}</td>";
+                            echo "<td>{$row['ContactInformation']}</td>";
+                            echo "<td>{$row['FosterParent']}</td>";
+                            echo "<td>";
+                            echo "<div class='btn-group' role='group'>";
+                            echo "<form>";
+                            echo "<button type='button' class='btn btn-info mx-2 viewbtn'>View</button>";
+                            echo "</form>";
+                            echo "<form>";
+                            echo "<button type='button' class='btn btn-primary editbtn'>Edit</button>";
+                            echo "</form>";
+                            echo "<form>";
+                            echo "<button type='button' class='btn btn-danger mx-2 deletebtn' data-childid='{$row['ChildID']}'>Delete</button>";
+                            echo "</form>";
+                            echo "<form>";
+                            echo "<button type='button' class='btn btn-warning mx-2 adoptbtn' data-childid='{$row['ChildID']}'>Adopt</button>";
+                            echo "</form>";
+                            echo "<form>";
+                            echo "<button type='button' class='btn btn-secondary printbtn' onclick='printTableRow({$row['ChildID']})'>Print</button>";
+                            echo "</form>";                    
+                            echo "</div>";
+                            echo "</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='14'>No records found</td></tr>";
+                    }
+
+                    // Close database connection
+                    ?>
+                </tbody>
+            </table>
         </div>
-        <table id="childrenTable" class="table table-striped text-center" style="width:100%">
-            <thead>
-                <tr>
-                    <th class="text-center">ID</th>
-                    <th class="text-center">Image</th>
-                    <th class="text-center">Name</th>
-                    <th class="text-center">DOB</th>
-                    <th class="text-center">Gender</th>
-                    <th class="text-center">DOA</th>
-                    <th class="text-center">Caregiver</th>
-                    <th class="text-center">Medical Information</th>
-                    <th class="text-center">Educational Status</th>
-                    <th class="text-center">Legal Status</th>
-                    <th class="text-center">Contact Information</th>
-                    <th class="text-center">Foster Parent</th>
-                    <th class="text-center">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                // Fetch orphanage records from database
-                $sql = "SELECT * FROM orphanage";
-                $result = mysqli_query($conn, $sql);
+    </div>
+</div>
 
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                    echo "<td>{$row['ChildID']}</td>";
-                    echo "<td><img src='{$row['ImagePath']}' class='img-fluid' style='max-width: 100px;' alt='Child Image'></td>";
-                    echo "<td>{$row['Name']}</td>";
-                    echo "<td>{$row['DateOfBirth']}</td>";
-                    echo "<td>{$row['Gender']}</td>";
-                    echo "<td>{$row['DateOfAdmission']}</td>";
-                    echo "<td>{$row['GuardianCaregiver']}</td>";
-                    echo "<td>{$row['MedicalInformation']}</td>";
-                    echo "<td>{$row['EducationalStatus']}</td>";
-                    echo "<td>{$row['LegalStatus']}</td>";
-                    echo "<td>{$row['ContactInformation']}</td>";
-                    echo "<td>{$row['FosterParent']}</td>";
-                    echo "<td>";
-                    echo "<div class='btn-group' role='group'>";
-                    echo "<form>";
-                    echo "<button type='button' class='btn btn-primary editbtn'>Edit</button>";
-                    echo "</form>";
-                    echo "<form>";
-                    echo "<button type='button' class='btn btn-danger mx-2 deletebtn' data-childid='{$row['ChildID']}'>Delete</button>";
-                    echo "</form>";
-                    echo "<form>";
-                    echo "<button type='button' class='btn btn-warning adoptbtn' data-childid='{$row['ChildID']}'>Adopt</button>";
-                    echo "</form>";
-                    echo "</td>";
-                    echo "</tr>";
-                }
-            } else {
-                echo "<tr><td colspan='14'>No records found</td></tr>";
-            }
 
-            // Close database connection
-            ?>
-        </tbody>
-    </table>
-</div>
-</div>
-</div>
 <div id="adopted" class="content-section" style="display: none;">
     <div class="container-fluid">
         <h2 class="text-center mb-5">Adopted Children</h2>
@@ -312,19 +321,18 @@ $stmt->close();
                     <th class="text-center">Contact Information</th>
                     <th class="text-center">Foster Parent</th>
                     <th class="text-center">Date Adopted</th>
+                    <th class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    // Connect to your database (assuming $conn is your mysqli connection)
-                    // Fetch adopted children records from adopted_children table
                     $sql = "SELECT * FROM adopted_children";
                     $result = mysqli_query($conn, $sql);
                     
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
-                            echo "<tr>";
-                            echo "<td class='text-start'>{$row['ChildID']}</td>";
+                            echo "<tr data-childid='{$row['ChildID']}'>";
+                            echo "<td class='view_id text-start'>{$row['ChildID']}</td>";
                             echo "<td class='text-start'><img src='{$row['ImagePath']}' class='img-fluid' style='max-width: 100px;' alt='Child Image'></td>";
                             echo "<td class='text-start'>{$row['Name']}</td>";
                             echo "<td class='text-start'>{$row['DateOfBirth']}</td>";
@@ -337,6 +345,14 @@ $stmt->close();
                             echo "<td class='text-start'>{$row['ContactInformation']}</td>";
                             echo "<td class='text-start'>{$row['FosterParent']}</td>";
                             echo "<td class='text-start'>{$row['DateAdopted']}</td>";
+                            echo "<td>";
+                            echo "<div class='btn-group' role='group'>";
+                            echo "<form>";
+                            echo "<button type='button' class='btn btn-info mx-2 viewbtn'>View</button>";
+                            echo "</form>";
+                            echo "<form>";
+                            echo "<button type='button' class='btn btn-secondary printbtn' onclick='printTableRow({$row['ChildID']})'>Print</button>";
+                            echo "</form>";
                             echo "</td>";
                             echo "</tr>";
                         }
@@ -390,7 +406,7 @@ $stmt->close();
                         while ($row = mysqli_fetch_assoc($result)) {
                             if ($row['status'] != 'Rejected') {
                                 echo "<tr id='row{$row['id']}'>";
-                                echo "<td class='text-center'>{$row['id']}</td>";
+                                echo "<td class='view_request_id text-center'>{$row['id']}</td>";
                                 echo "<td class='text-center'>{$row['fullname']}</td>";
                                 echo "<td class='text-center'>{$row['email']}</td>";
                                 echo "<td class='text-center'>{$row['phone']}</td>";
@@ -414,6 +430,9 @@ $stmt->close();
                                 echo "<td class='text-center'>{$row['created_at']}</td>";
                                 echo "<td>";
                                 echo "<div class='btn-group' role='group'>";
+                                echo "<form>";
+                                echo "<button type='button' class='btn btn-info mx-2 view-btn'>View</button>";
+                                echo "</form>";
                                 echo "<form id='acceptForm{$row['id']}' method='post' action='accept_request.php'>";
                                 echo "<input type='hidden' name='request_id' value='{$row['id']}'>";
                                 echo "<button type='button' class='btn btn-success mx-2 accept-btn' data-request-id='{$row['id']}'>Accept</button>";
@@ -461,7 +480,7 @@ $stmt->close();
                     <th class="text-center" style="padding-left: 100px; padding-right: 100px;">Plans</th>
                     <th class="text-center" style="padding-left: 100px; padding-right: 100px;">Expectations</th>
                     <th class="text-center" style="padding-left: 100px; padding-right: 100px;">Message</th>
-                    <th class="text-center">Submitted At</th>
+                    <th class="text-center">Accepted At</th>
                     <th class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -474,7 +493,7 @@ $stmt->close();
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo "<tr>";
                             echo "<td class='text-center'>{$row['id']}</td>";
-                            echo "<td class='text-center'>{$row['fullname']}</td>";
+                            echo "<td class='view_request_id text-center'>{$row['id']}</td>";
                             echo "<td class='text-center'>{$row['email']}</td>";
                             echo "<td class='text-center'>{$row['phone']}</td>";
                             echo "<td class='text-center small'>{$row['address']}</td>";
@@ -496,6 +515,9 @@ $stmt->close();
                             echo "<td class='text-center'>{$row['created_at']}</td>";
                             echo "<td>";
                             echo "<div class='btn-group'>";
+                            echo "<form>";
+                            echo "<button type='button' class='btn btn-info mx-2 view-btn'>View</button>";
+                            echo "</form>";
                             echo "<form method='post' action='release_request.php' class='release-form'>";
                             echo "<input type='hidden' name='request_id' value='{$row['id']}'>";
                             echo "<button type='button' class='btn btn-success mx-2 release-btn' onclick='confirmRelease({$row['id']})'>Release</button>";
@@ -544,7 +566,8 @@ $stmt->close();
                     <th class="text-center" style="padding-left: 100px; padding-right: 100px;">Plans</th>
                     <th class="text-center" style="padding-left: 100px; padding-right: 100px;">Expectations</th>
                     <th class="text-center" style="padding-left: 100px; padding-right: 100px;">Message</th>
-                    <th class="text-center">Submitted At</th>
+                    <th class="text-center">Released At</th>
+                    <th class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -555,7 +578,7 @@ $stmt->close();
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo "<tr>";
-                            echo "<td class='text-center'>{$row['id']}</td>";
+                            echo "<td class='view_request_id text-center'>{$row['id']}</td>";
                             echo "<td class='text-center'>{$row['fullname']}</td>";
                             echo "<td class='text-center'>{$row['email']}</td>";
                             echo "<td class='text-center'>{$row['phone']}</td>";
@@ -576,6 +599,11 @@ $stmt->close();
                             echo "<td class='text-center small'>{$row['expectations']}</td>";
                             echo "<td class='text-center small'>{$row['message']}</td>";
                             echo "<td class='text-center'>{$row['created_at']}</td>";
+                            echo "<td>";
+                            echo "<div class='btn-group'>";
+                            echo "<form>";
+                            echo "<button type='button' class='btn btn-info mx-2 view-btn'>View</button>";
+                            echo "</form>";
                             echo "</td>";
                             echo "</tr>";
                         }
@@ -590,9 +618,46 @@ $stmt->close();
       </div>
     </div>
 </div>
+
+<!-- View Child Modal -->
+<div class="modal fade" id="viewChildModal" tabindex="-1" aria-labelledby="viewChildModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewChildModalLabel">View Child Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="view_child_data">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
      
-    <!-- /#page-content-wrapper -->
-<!-- /#wrapper -->
+
+<!-- View Request Modal -->
+<div class="modal fade" id="viewRequestModal" tabindex="-1" aria-labelledby="viewRequestModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewRequestModalLabel">View User's Request Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="view_request_data">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
  <!-- Edit Child Modal -->
 <div class="modal fade" id="editChildModal" tabindex="-1" aria-labelledby="editChildModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg"> <!-- Adjust modal-dialog size as needed -->
@@ -767,6 +832,63 @@ $stmt->close();
 </div>
 
 <script>
+function printTableRow(childID) {
+    // Find the table row corresponding to the childID
+    var tableRow = document.querySelector("tr[data-childid='" + childID + "']");
+    if (tableRow) {
+        // Hide action buttons before printing
+        var actionButtons = tableRow.querySelectorAll('.viewbtn, .printbtn');
+        actionButtons.forEach(function(button) {
+            button.style.display = 'none';
+        });
+
+        // Get image source directly from the table row
+        var imageSrc = tableRow.querySelector("img").src;
+
+        // Create a new window for printing
+        var printWindow = window.open('', '_blank');
+        printWindow.document.open();
+        // Construct the HTML content to be printed
+        printWindow.document.write("<html><head><title>Child Record</title>");
+        // Optional: Add CSS for better print layout
+        printWindow.document.write("<style>body { font-family: Arial, sans-serif; } table { width: 100%; border-collapse: collapse; margin-bottom: 20px; } th, td { border: 1px solid #ddd; padding: 8px; } img { max-width: 100%; height: auto; }</style>");
+        printWindow.document.write("</head><body>");
+        printWindow.document.write("<h2 style='text-align: center;'>Child Information</h2>");
+        // Print the image
+        printWindow.document.write("<img src='" + imageSrc + "' class='img-fluid' style='max-width: 200px; float: right; display: block; margin: 0 auto; margin-bottom: 20px;' alt='Child Image'>");
+        // Print specific columns only
+        printWindow.document.write("<table>");
+        printWindow.document.write("<tr><td><strong>Name:</strong></td><td>" + tableRow.querySelector("td:nth-child(3)").innerHTML + "</td></tr>");
+        printWindow.document.write("<tr><td><strong>Date of Birth:</strong></td><td>" + tableRow.querySelector("td:nth-child(4)").innerHTML + "</td></tr>");
+        printWindow.document.write("<tr><td><strong>Gender:</strong></td><td>" + tableRow.querySelector("td:nth-child(5)").innerHTML + "</td></tr>");
+        printWindow.document.write("<tr><td><strong>Date of Admission:</strong></td><td>" + tableRow.querySelector("td:nth-child(6)").innerHTML + "</td></tr>");
+        printWindow.document.write("<tr><td><strong>Caregiver:</strong></td><td>" + tableRow.querySelector("td:nth-child(7)").innerHTML + "</td></tr>");
+        printWindow.document.write("<tr><td><strong>Medical Information:</strong></td><td>" + tableRow.querySelector("td:nth-child(8)").innerHTML + "</td></tr>");
+        printWindow.document.write("<tr><td><strong>Educational Status:</strong></td><td>" + tableRow.querySelector("td:nth-child(9)").innerHTML + "</td></tr>");
+        printWindow.document.write("<tr><td><strong>Legal Status:</strong></td><td>" + tableRow.querySelector("td:nth-child(10)").innerHTML + "</td></tr>");
+        printWindow.document.write("<tr><td><strong>Contact Information:</strong></td><td>" + tableRow.querySelector("td:nth-child(11)").innerHTML + "</td></tr>");
+        printWindow.document.write("<tr><td><strong>Foster Parent:</strong></td><td>" + tableRow.querySelector("td:nth-child(12)").innerHTML + "</td></tr>");
+        printWindow.document.write("</table>");
+        printWindow.document.write("</body></html>");
+        printWindow.document.close();
+        // Focus and print the new window
+        printWindow.focus();
+        printWindow.print();
+        printWindow.close();
+
+        // Restore action buttons visibility after printing
+        actionButtons.forEach(function(button) {
+            button.style.display = '';
+        });
+    } else {
+        console.error("Child record with ID " + childID + " not found.");
+        alert("Child record with ID " + childID + " not found. Please check your data.");
+    }
+}
+</script>
+
+
+<script>
 $(document).ready(function() {
     // Event delegation for delete button click
     $('#childrenTable').on('click', '.deletebtn', function() {
@@ -805,6 +927,54 @@ $(document).ready(function() {
                 });
             } else if (result.dismiss === Swal.DismissReason.cancel) {
                 Swal.fire('Cancelled', 'The record deletion was cancelled.', 'info');
+            }
+        });
+    });
+});
+</script>
+
+<script>
+$(document).ready(function () {
+    $('.viewbtn').click(function (e) {
+        e.preventDefault();
+
+        var view_id = $(this).closest('tr').find('.view_id').text();
+
+        $.ajax({
+            method: "POST",
+            url: "view_data.php",
+            data: {
+                'click_view_btn': true,
+                'view_id': view_id,
+            },
+            success: function (response) {
+                console.log(response);
+                $('.view_child_data').html(response);
+                $('#viewChildModal').modal('show');
+            }
+        });
+    });
+});
+</script>
+
+<script>
+$(document).ready(function () {
+    $('.view-btn').click(function (e) {
+        e.preventDefault();
+
+        var view_request_id = $(this).closest('tr').find('.view_request_id').text();
+
+        $.ajax({
+            method: "POST",
+            url: "view_data.php",
+            data: {
+                'click_view_request_btn': true,
+                'view_request_id': view_request_id,
+            },
+            success: function (response) {
+                console.log(response);
+                $('.view_request_data').html(response);
+                $('#viewRequestModal').modal('show');
             }
         });
     });

@@ -19,28 +19,35 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['role
         header("Location: ../login.php?error=All fields are required");
         exit();
     } else {
-        $password = md5($password);
+        // Use prepared statement to prevent SQL injection
+        $sql = "SELECT * FROM users WHERE username=? AND role=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ss", $username, $role);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-        $result = mysqli_query($conn, $sql);
+        if ($result->num_rows === 1) {
+            $row = $result->fetch_assoc();
+            if (password_verify($password, $row['password'])) {
+                if ($row['verify_status'] === 1) {
+                    $_SESSION['name'] = $row['name'];
+                    $_SESSION['id'] = $row['id'];
+                    $_SESSION['role'] = $row['role'];
+                    $_SESSION['username'] = $row['username'];
 
-        if (mysqli_num_rows($result) === 1) {
-            $row = mysqli_fetch_assoc($result);
-            if ($row['role'] === $role) {
-                $_SESSION['name'] = $row['name'];
-                $_SESSION['id'] = $row['id'];  // Store login ID
-                $_SESSION['role'] = $row['role'];
-                $_SESSION['username'] = $row['username'];
+                    // Set a cookie to maintain login state
+                    setcookie('loggedIn', 'true', time() + (86400 * 30), "/"); // 86400 = 1 day
 
-                // Set a cookie to maintain login state
-                setcookie('loggedIn', 'true', time() + (86400 * 30), "/"); // 86400 = 1 day
-
-                // Redirect to the appropriate dashboard
-                if ($role === "admin") {
-                    header("Location: ../admin_db.php");
-                    exit();
-                } elseif ($role === "user") {
-                    header("Location: ../user_db.php");
+                    // Redirect to the appropriate dashboard based on the role
+                    if ($role === "admin") {
+                        header("Location: ../admin_db.php");
+                        exit();
+                    } elseif ($role === "user") {
+                        header("Location: ../user_db.php");
+                        exit();
+                    }
+                } else {
+                    header("Location: ../login.php?error=Please verify your Email Address to login");
                     exit();
                 }
             } else {

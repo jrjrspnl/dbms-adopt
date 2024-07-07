@@ -92,6 +92,8 @@
       font-size: 2rem; /* Adjust font size for smaller screens */
     }
   }
-  .light-bold {
-    font-weight: 500; /* Adjust the weight as needed (300 for light, 700 for bold, 500 for in-between) */
-  }
+
+  .row{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
