@@ -30,7 +30,7 @@
           <a class="nav-link" href="about.php" >About us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="adoption.html">Adoption</a>
+          <a class="nav-link" href="adoption.php">Adoption</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#footer">Contact us</a>
@@ -106,6 +106,13 @@
                     <label for="confirm_password" class="form-label">Confirm Password</label>
                     <input type="password" class="form-control" name="confirm_password" id="confirm_password">
                 </div>
+                <div class="mb-3">
+                    <div class="form-check mb-4">
+                        <input class="form-check-input " type="checkbox" id="terms" name="terms" required>
+                        <label class="form-check-label" for="terms">
+                            I agree to the <a href="termsncondition.php" target="_blank">Terms and Conditions</a>
+                        </label>
+                    </div>
                 <div class="d-grid">
                     <button type="submit" class="btn btn-primary">Register</button>
                 </div>
@@ -124,93 +131,71 @@
     <p class="text-center">Our mission is to help every child find a loving and supportive family. Join us in making a difference!</p>
 </div>
 
-    <div id="ContactUs">
-<footer
-          class="text-center text-lg-start text-white"
-          style="background-color: #3FC8FF"
-          >
+<!-- Footer -->
+<footer class="text-center text-lg-start text-white" style="background-color: #3FC8FF">
     <!-- Grid container -->
-    <div class="container p-4 pb-0 ">
-      <!-- Section: Links -->
-      <section class="">
-        <!--Grid row-->
-        <div class="row">
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h6 class="titles text-uppercase mb-4 fw-bold fs-4 text-center">
-              <img src="images/weblogo.png" alt="AdoptAbility Logo" width="75" height="60" class="s"> <!-- Your logo -->
-              AdoptAbility Foundation
-              
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse corrupti aperiam fugiat quibusdam inventore eligendi?
-            </p>
-          </div>
-          <!-- Grid column -->
+    <div class="container p-4 pb-0">
+        <!-- Section: Links -->
+        <section class="">
+            <!-- Grid row -->
+            <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h6 class="titles text-uppercase mb-4 fw-bold fs-4 text-center">
+                        <img src="images/weblogo.png" alt="AdoptAbility Logo" width="75" height="60" class="s"> AdoptAbility Foundation
+                    </h6>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse corrupti aperiam fugiat quibusdam inventore eligendi?
+                    </p>
+                </div>
+                <!-- Grid column -->
 
-          <hr class="w-100 clearfix d-md-none" />
+                <hr class="w-100 clearfix d-md-none" />
 
-   
-          <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 fw-bold">Contact</h6>
+                    <p>
+                        <i class="fas fa-home mr-3"></i>
+                        <img src="images/loc.png" alt="location Logo" width="20" height="20"> <span>Tagalondon, NY 10012, PH</span>
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope mr-3"></i>
+                        <img src="images/email.png" alt="email Logo" width="20" height="20"> <span>adoptability@gmail.com</span>
+                    </p>
+                    <p>
+                        <i class="fas fa-phone mr-3"></i>
+                        <img src="images/phone-call.png" alt="Phone Logo" width="20" height="20"> <span>+ 63 12 345 678</span>
+                    </p>
+                </div>
+                <!-- Grid column -->
 
-          <hr class="w-100 clearfix d-md-none" />
-
-          <!-- Grid column -->
-          <hr class="w-100 clearfix d-md-none" />
-
-          <!-- Grid column -->
-          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 fw-bold">Contact</h6>
-            <p><i class="fas fa-home mr-3"></i> 
-              <img src="images/loc.png" alt="location Logo" width="20" height="20"> <!-- Your logo -->
-              <span>Tagalondon, NY 10012, PH</span>
-            </p>
-            <p><i class="fas fa-envelope mr-3"></i> 
-              <img src="images/email.png" alt="email Logo" width="20" height="20"> <!-- Your logo -->
-              <span>adoptability@gmail.com</span>
-            </p>
-            <p>
-              <i class="fas fa-phone mr-3"></i> <!-- Phone icon -->
-              <img src="images/phone-call.png" alt="Phone Logo" width="20" height="20"> <!-- Your logo -->
-              <span>+ 63 12 345 678</span> <!-- Phone number -->
-            </p>
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <!-- Grid column -->
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3 mb-5">
-            <h6 class="text-uppercase mb-4 fw-bold">Follow us</h6>
-            <div>
-              <a href="#" style="margin-right: 10px;"><img src="images/facebook.png" alt="Facebook Logo" width="30" height="30"></a>
-              <a href="#" style="margin-right: 10px;"><img src="images/twitter.png" alt="Twitter Logo" width="30" height="30"></a>
-              <a href="#"><img src="images/instagram.png" alt="Instagram Logo" width="30" height="30"></a>
-              <!-- Add more social media icons as needed -->
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3 mb-5">
+                    <h6 class="text-uppercase mb-4 fw-bold">Follow us</h6>
+                    <div>
+                        <a href="#" style="margin-right: 10px;"><img src="images/facebook.png" alt="Facebook Logo" width="30" height="30"></a>
+                        <a href="#" style="margin-right: 10px;"><img src="images/twitter.png" alt="Twitter Logo" width="30" height="30"></a>
+                        <a href="#"><img src="images/instagram.png" alt="Instagram Logo" width="30" height="30"></a>
+                        <!-- Add more social media icons as needed -->
+                    </div>
+                </div>
+                <!-- Grid column -->
             </div>
-          </div>
-<!-- Grid column -->
-
-<!-- Grid column -->
-
-        <!--Grid row-->
-      </section>
-      <!-- Section: Links -->
+            <!-- Grid row -->
+        </section>
+        <!-- Section: Links -->
     </div>
     <!-- Grid container -->
 
-    <!-- Copyright -->
-    <div
-         class="text-center p-3"
-         style="background-color: rgba(0, 0, 0, 0.2)"
-         >
-      © 2020 Copyright:
-      <a class="text-white" href="#"
-         >AdoptAbility Foundation</a
-        >
+    <!-- Terms and Conditions -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2020 Copyright:
+        <a class="text-white" href="#">AdoptAbility Foundation</a>
+        <a class="text-white ms-3" href="termsncondition.php">Terms and Conditions</a> <!-- Add your Terms and Conditions link here -->
     </div>
     <!-- Copyright -->
-  </footer>
+</footer>
 
   <script defer src="nav.js"></script>
 

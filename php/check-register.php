@@ -99,7 +99,7 @@ if (isset($_POST['name'], $_POST['lastname'], $_POST['email'], $_POST['gender'],
     mysqli_stmt_close($stmt2);
     mysqli_close($conn);
 } else {
-    header("Location: ../register.php");
+    header("Location: ../register.php?error=All fields are required");
     exit();
 }
 
